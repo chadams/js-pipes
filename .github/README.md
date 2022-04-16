@@ -1,6 +1,6 @@
 # Parcel Typescript Library Starter
 
-Starting point for creating packages for npm publishing using the [Parcel](https://parceljs.org/) bundler. Companion repo to blog post. 
+Starting point for creating packages for npm publishing using the [Parcel](https://parceljs.org/) bundler. Companion repo to blog post [Create your own typescript library with Parcel.js](https://dev.to/ihaback/create-your-own-typescript-library-with-parceljs-3dh7). 
 
 # Prerequisites
 - Node
