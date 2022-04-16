@@ -1,6 +1,6 @@
 {
   "name": "@ihaback/your-typescript-lib",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Build your own typescript library with parcel",
   "source": "src/index.ts",
   "main": "dist/main.js",
