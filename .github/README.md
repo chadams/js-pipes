@@ -4,7 +4,6 @@ Starting point for creating packages for npm publishing using the [Parcel](https
 
 # Prerequisites
 - Node
-- Docker
 - Volta (optional)
 
 
