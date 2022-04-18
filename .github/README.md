@@ -36,6 +36,12 @@ npm run build
 npm run lint
 ```
 
+# Test
+
+```
+npm run test
+```
+
 # Publish (optional if you have npmjs.com account)
 
 ```
