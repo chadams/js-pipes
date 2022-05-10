@@ -1,81 +1,55 @@
-# js-pipes
+# Parcel Typescript Library Starter
 
-Angular like pipes anywhere
+Starting point for creating packages for npm publishing using the [Parcel](https://parceljs.org/) bundler. Companion repo to blog post [Create your own typescript library with Parcel.js](https://dev.to/ihaback/create-your-own-typescript-library-with-parceljs-3dh7). 
 
-## Install
+# Prerequisites
+- Node
+- Volta (optional)
 
-```bash
-$ npm install js-pipes
+
+# Install
+
+```
+npm run install
+```
+Or with volta config from package.json (recommended)
+```
+volta run npm install
 ```
 
-## Usage
+# Development
 
-```js
-import PipesEngine from "js-pipes";
-
-const piper = PipesEngine();
-
-piper({ name: "test string" }, "${name}"); // 'test string'
+```
+npm run dev
 ```
 
----
+# Build
 
-## built in transforms
-
-### uppercase
-
-```js
-piper({ name: "test string" }, "${name|uppercase}"); // 'TEST STRING'
+```
+npm run build
 ```
 
-### date
 
-using [dayjs](https://day.js.org/)
+# Lint
 
-```js
-piper({ start: "2021-03-26T15:32:37-04:00" }, "${start|date:'MM/DD/YYYY'}"); // '03/26/2021'
-piper({ start: "2021-03-26T15:32:37-04:00" }, "${start|date:'llll'}"); // 'Fri, Mar 26, 2021 3:32 PM'
+```
+npm run lint
 ```
 
-### switch
+# Test
 
-```js
-piper({ yes: true }, "${yes|sw:'happy','sad'}"); // happy
-piper({ yes: false }, "${yes|sw:'happy','sad'}"); // sad
+```
+npm run test
 ```
 
-### currency
+# Publish (optional if you have npmjs.com account)
 
-```js
-piper({ amount: 1223.33 }, "${amount|currency}"); // '$1,223.33'
 ```
-
----
-
-## deeply nested data works
-
-```js
-piper({ user: [{ name: "test string" }] }, "${user[0].name|uppercase}"); // 'TEST STRING'
+npm login
 ```
-
----
-
-## make your own transforms
-
-```js
-
-const calendar = () => (dateStr) => {
-  return dayjs().calendar(dayjs(dateStr));
-};
-
-const piper = PipesEngine({
-  calendar
-};
-});
-
-piper({ name: 'test string' }, '${name}'); // 'test string'
 ```
-
-## License
-
-[MIT](LICENSE.txt)
+npm version minor
+```
+```
+npm publish --access public
+```
