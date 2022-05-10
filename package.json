@@ -16,7 +16,7 @@
   "author": "Chad Adams",
   "license": "ISC",
   "dependencies": {
-    "dayjs": "1.11.1",
+    "dayjs": "1.11.2",
     "lodash": "4.17.21",
     "split-string": "6.1.0"
   },
