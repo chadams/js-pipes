@@ -1,7 +1,7 @@
 {
-  "name": "@ihaback/your-typescript-lib",
-  "version": "2.7.0",
-  "description": "Build your own typescript library with parcel",
+  "name": "@chadams/js-pipes",
+  "version": "1.0.0",
+  "description": "Angular like pipes anywhere",
   "source": "src/index.ts",
   "main": "dist/main.js",
   "types": "dist/types.d.ts",
@@ -13,8 +13,13 @@
     "test": "jest --coverage"
   },
   "keywords": [],
-  "author": "ihaback",
+  "author": "Chad Adams",
   "license": "ISC",
+  "dependencies": {
+    "dayjs": "1.11.1",
+    "lodash": "4.17.21",
+    "split-string": "6.1.0"
+  },
   "devDependencies": {
     "@parcel/packager-ts": "^2.5.0",
     "@parcel/transformer-typescript-types": "^2.5.0",
