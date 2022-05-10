@@ -1,55 +1,81 @@
-# Parcel Typescript Library Starter
+# js-pipes
 
-Starting point for creating packages for npm publishing using the [Parcel](https://parceljs.org/) bundler. Companion repo to blog post [Create your own typescript library with Parcel.js](https://dev.to/ihaback/create-your-own-typescript-library-with-parceljs-3dh7). 
+Angular like pipes anywhere
 
-# Prerequisites
-- Node
-- Volta (optional)
+## Install
 
-
-# Install
-
-```
-npm run install
-```
-Or with volta config from package.json (recommended)
-```
-volta run npm install
+```bash
+$ npm i @chadams/js-pipes
 ```
 
-# Development
+## Usage
 
-```
-npm run dev
-```
+```js
+import PipesEngine from "js-pipes";
 
-# Build
+const piper = PipesEngine();
 
-```
-npm run build
+piper({ name: "test string" }, "${name}"); // 'test string'
 ```
 
+---
 
-# Lint
+## built in transforms
 
-```
-npm run lint
-```
+### uppercase
 
-# Test
-
-```
-npm run test
+```js
+piper({ name: "test string" }, "${name|uppercase}"); // 'TEST STRING'
 ```
 
-# Publish (optional if you have npmjs.com account)
+### date
 
+using [dayjs](https://day.js.org/)
+
+```js
+piper({ start: "2021-03-26T15:32:37-04:00" }, "${start|date:'MM/DD/YYYY'}"); // '03/26/2021'
+piper({ start: "2021-03-26T15:32:37-04:00" }, "${start|date:'llll'}"); // 'Fri, Mar 26, 2021 3:32 PM'
 ```
-npm login
+
+### switch
+
+```js
+piper({ yes: true }, "${yes|sw:'happy','sad'}"); // happy
+piper({ yes: false }, "${yes|sw:'happy','sad'}"); // sad
 ```
+
+### currency
+
+```js
+piper({ amount: 1223.33 }, "${amount|currency}"); // '$1,223.33'
 ```
-npm version minor
+
+---
+
+## deeply nested data works
+
+```js
+piper({ user: [{ name: "test string" }] }, "${user[0].name|uppercase}"); // 'TEST STRING'
 ```
+
+---
+
+## make your own transforms
+
+```js
+
+const calendar = () => (dateStr) => {
+  return dayjs().calendar(dayjs(dateStr));
+};
+
+const piper = PipesEngine({
+  calendar
+};
+});
+
+piper({ name: 'test string' }, '${name}'); // 'test string'
 ```
-npm publish --access public
-```
+
+## License
+
+[MIT](LICENSE.txt)

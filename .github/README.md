@@ -5,7 +5,7 @@ Angular like pipes anywhere
 ## Install
 
 ```bash
-$ npm install js-pipes
+$ npm i @chadams/js-pipes
 ```
 
 ## Usage
